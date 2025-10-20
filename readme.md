@@ -19,7 +19,7 @@
 
 * `abstract class Subscription`
 
-    * поля: `String id`, `String title`, `BigDecimal monthlyPrice`, `int startDate`, `boolean active`
+    * поля: `String id`, `String title`, `float monthlyPrice`, `int startDate`, `boolean active`
     * методы: `activate()`, `cancel()`, `isActive()`, `price()`
 
 Интерфейсы (поведения):
@@ -83,7 +83,7 @@
 class Subscription {
     private  String id;
     private  String title;
-    protected BigDecimal monthlyPrice;
+    protected float monthlyPrice;
     private  int startDate;
     protected boolean active;
 }
@@ -92,7 +92,7 @@ class MusicPlan extends Subscription implements Billable, TrialSupport {
     private  int trialDays = 14;
 
     @Override
-    public BigDecimal monthlyCharge(int forMonth) { ...}
+    public float monthlyCharge(int forMonth) { ...}
 
     @Override
     public int trialDays() {
