@@ -17,7 +17,7 @@
 
 Базовый родитель:
 
-* `abstract class Subscription`
+* `class Subscription`
 
     * поля: `String id`, `String title`, `float monthlyPrice`, `int startDate`, `boolean active`
     * методы: `activate()`, `cancel()`, `isActive()`, `price()`
@@ -28,7 +28,7 @@
 
   ```java
   interface Billable {
-      float monthlyCharge(int forMonth); // расчёт списания за месяц (с учётом статуса/скидок)
+      float monthlyCharge(float forMonth); // расчёт списания за месяц (с учётом статуса/скидок)
   }
   ```
 * `Pausable`
@@ -92,7 +92,7 @@ class MusicPlan extends Subscription implements Billable, TrialSupport {
     private  int trialDays = 14;
 
     @Override
-    public float monthlyCharge(int forMonth) { ...}
+    public float monthlyCharge(float forMonth) { ...}
 
     @Override
     public int trialDays() {
@@ -109,7 +109,7 @@ class VideoPlan extends Subscription implements Billable, Pausable, Sharable {
     private  PauseWindow[] pauses = new Pauses[5];
 
     @Override
-    public int monthlyCharge(int forMonth) { /* пропорция активных дней */ }
+    public int monthlyCharge(float forMonth) { /* пропорция активных дней */ }
 
     @Override
     public void pause(int from, int to) { ...}
